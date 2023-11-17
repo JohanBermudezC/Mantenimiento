@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 170vh;
+            height: 100vh;
+        }
+
+        .container {
+
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+            border-radius: 15% 0%;
+            padding: 8px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="">Escriba texto</label>
+        <input type="text" id="caja" autofocus placeholder="Escriba aqui...">
+        <p id="mensaje"></p>
+
+        <button ondblclick="validar()">validar</button>
+        <button onblur="hacer()">Calcular</button>
+
+        <p id="mensaje2"></p>
+        <button onclick="eliminarPri()">Eliminar primero</button>
+        <p id="elim1"></p>
+        <button onclick="eliminarUlt()">Eliminar ultimo</button>
+        <p id="elim2"></p>
+    </div>
+
+    <script>
+
+        var caja = document.getElementById("caja");
+        function validar() {
+            var condition = caja.value.length < 5;
+            if (condition) {
+                mensaje.innerText = "invalido";
+                mensaje.style.color = "red";
+                mensaje2.innerText = "";
+            } else {
+                mensaje.innerText = "valido";
+                mensaje.style.color = "green";
+
+            }
+        }
+        function hacer() {
+            for (let index = 0; index < (caja.value).length; index++) {
+                var element = (caja.value).charAt[index];
+                if (element === " ") {
+                } else {
+                    mensaje2.innerText += (caja.value)[index] + ",";
+                }
+            }
+            document.getElementById("caja").disabled = true;
+        }
+        function eliminarPri() {
+            let caracter = (caja.value)[0];
+            elim1.innerText = caracter;
+            elim1.style.color = "green";
+            mensaje2.innerText = "";
+            for (let index = 1; index < (caja.value).length; index++) {
+                var element = (caja.value).charAt[index];
+                if (element === " ") {
+                } else {
+                    mensaje2.innerText += (caja.value)[index] + ",";
+                }
+            }
+            
+        }
+        function eliminarUlt() {
+            let caracter = (caja.value)[0];
+            elim2.innerText = caracter;
+            elim2.style.color = "green";
+            mensaje2.innerText = "";
+            for (let index = 0; index < ((caja.value).length)-1; index++) {
+                var element = (caja.value).charAt[index];
+                if (element === " ") {
+                } else {
+                    mensaje2.innerText += (caja.value)[index] + ",";
+                }
+            }
+            
+        }
+        
+
+
+
+
+
+    </script>
+</body>
+
+</html>

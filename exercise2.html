@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            padding-right: 170vh;
+            height: 100vh;
+        }
+
+        .container {
+
+            justify-content: center;
+            align-items: center;
+            background-color: antiquewhite;
+            border-radius: 15% 0%;
+            padding: 8px;
+
+        }
+        button{
+            color: rgb(255, 255, 255);
+            background-color: rgb(252, 2, 2);
+            border-radius: 15%;
+        }
+        p{
+            background-color: azure;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="">Digite un numero</label>
+        <input type="text" id="caja" autofocus placeholder="Escriba aqui...">
+        <button ondblclick="validar()">validar</button>
+        <p id="mensaje"></p>
+        <!-- <button onclick="mostrar()">Piramide</button> -->
+        <p id="mensaje2"></p>
+
+    </div>
+    <script>
+        var caja = document.getElementById("caja");
+
+        function validar() {
+
+            if (isNaN(caja.value)) {
+                Swal.fire({
+                    icon: 'info',
+                    showConfirmButton: false,
+                    title: "ingrese un digito valido",
+                    timer: 2000
+                })
+                mensaje.innerText = "Invalido";
+                mensaje.style.color = "red";
+                mensaje2.innerText = " ";
+            } else {
+                mensaje.innerText = "valido";
+                mensaje.style.color = "green";
+
+                
+                
+
+                    for (let index = 1; index <= caja.value; index++) {
+                        for (let j = 0; j < index; j++) {
+                            mensaje2.innerText += " " + index;
+                        }
+                        mensaje2.innerText += "\n ";
+                    }
+                
+            }
+
+        }
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>
